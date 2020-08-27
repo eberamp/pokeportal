@@ -20,6 +20,7 @@ Live demo: https://eberamp.com
 1. /pokeportal/invite/e71n0gArd
 2. /pokeportal/invite/eNuc1us
 
+El codigo y/o enlace son para Dragonite (1) y Suicune (2) respectivamente.
 
 ## Sesiones:
 
