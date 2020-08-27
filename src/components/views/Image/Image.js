@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Image = function(props) {
-	return <img alt={ props.alt } src={ props.src }></img>
+	return <img src={ props.src } width={ props.width } alt={ props.alt } ></img>
 }
 
 export { Image };
