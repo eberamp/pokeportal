@@ -58,7 +58,7 @@ class FavoritesPage extends React.Component {
 
   _renderFilter = () => {
     const FAVORITE_MAX_COUNT = 15; // TODO: needs a better name
-    if(this.state.savedFavorites.length > FAVORITE_MAX_COUNT){
+    if(this.state.savedFavorites.length >= FAVORITE_MAX_COUNT){
       return <TextInput placeHolder="Nombre de pokemon" onChange={this.updateFilterText} />;
     }
   }
