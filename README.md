@@ -20,6 +20,11 @@ Live demo: https://eberamp.com
 1. /pokeportal/invite/e71n0gArd
 2. /pokeportal/invite/eNuc1us
 
+
+## Sesiones:
+
+La "sesion" deberia persistir hasta que se ejecuta refresh o se retrocede en el history fuera del alcance de las rutas principales.
+
 ## Bugs:
 
 Debido a falta de implementeacion logica, es posible agregar el mismo pokemon a favoritos mas de una vez. Esto ocaciona que al renderizar los componentes persista el renderizado anterior de un mismo componente, duplicando los objetos que se tenian, pues se pasa la misma key, en este caso el id del pokemon para mas de un componente.
