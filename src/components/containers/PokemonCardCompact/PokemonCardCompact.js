@@ -15,10 +15,11 @@ class PokemonCardCompact extends React.Component {
       <div>
 
         <Image src={image ? image : pokemon.sprites.front_default} width={200} alt={`Imagen del pokemon ${pokemon.name}`} />
-        <div>
-          Nombre: <b>{pokemon.name}</b>
-        </div>
-      
+        <p>
+        Nombre: <b>{pokemon.name}</b>
+        <br />
+        Tipo(s): {pokemon.types.map(types => `${types.type.name}, `)}
+        </p>
       </div>
 		);
 
