@@ -26,7 +26,8 @@ class PortalPage extends React.Component {
   handleOnSubmit = async (event) => {
     event.preventDefault();
 
-    if (this.state.searchCriteria === ''){
+    const searchCriteria = this.state.searchCriteria;
+    if (searchCriteria === ''){
       return;
     }
 
@@ -36,7 +37,7 @@ class PortalPage extends React.Component {
 
     try {
 
-      const resource = `https://pokeapi.co/api/v2/pokemon/${this.state.searchCriteria.toLowerCase()}`; 
+      const resource = `https://pokeapi.co/api/v2/pokemon/${searchCriteria.toLowerCase()}`; 
       const response = await fetch(resource);
       if (!response.ok){
         throw new Error('Something went wrong');
