@@ -18,7 +18,8 @@ class PortalPage extends React.Component {
       favoritesCount: userStore.getFavoritesCount(),
       pokemon: null,
       searchCriteria: "",
-      error: false
+      error: false,
+      addedToFavorites: false,
     }
   }
 
@@ -26,6 +27,10 @@ class PortalPage extends React.Component {
     event.preventDefault();
 
     if (this.state.searchCriteria === ''){
+      return;
+    }
+
+    if (this.state.pokemon && this.state.pokemon?.name === searchCriteria){ // If its the same pokemon we avoid making another request
       return;
     }
 
@@ -40,6 +45,7 @@ class PortalPage extends React.Component {
       const data = await response.json();
       this.setState({
         pokemon: data,
+        addedToFavorites: false,
         error: false
       });
 
@@ -51,19 +57,23 @@ class PortalPage extends React.Component {
   } // end of handleOnSubmit
 
   agregarFavoritos = (pokemonId) => {
-    this.setState({ favoritesCount: this.state.favoritesCount + 1});
+    this.setState({
+      favoritesCount: this.state.favoritesCount + 1,
+      addedToFavorites: true
+    });
+
     userStore.saveToFavorites([this.state.pokemon.id]);
   }
 
   _renderFetchedInformation = () => {
     if (this.state.error){
-      return <p>Cual es ese pokemon?</p>
+      return <p>Cuál es ese pokémon?</p>
 
     } else if (this.state.pokemon) {
       return (
         <div>
           <PokemonCardCompact pokemon={this.state.pokemon} />
-          <Button text="Guardar en favoritos" onClick={this.agregarFavoritos} />
+          <Button disabled={this.state.addedToFavorites} text="Guardar en favoritos" onClick={this.agregarFavoritos} />
         </div>
       );
 
