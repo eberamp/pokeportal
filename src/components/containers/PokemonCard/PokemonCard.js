@@ -43,7 +43,7 @@ class PokemonCard extends React.Component {
     // Stats should have its own component as well as movements
 
     if (this.state.error){
-      return <p>Also salio mal al cargar los datos :(</p>
+      return <p>Algo salio mal al cargar los datos :(</p>
     }
 
     if (this.state.isLoading){
